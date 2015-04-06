@@ -1,0 +1,25 @@
+<ion-view view-title="Directory">
+  <ion-header-bar class="bar-positive bar-subheader item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Search by specialty" ng-model="search" ng-change="scrollToTop()">
+    </label>
+    <button class="button button-clear" ng-if="search.length" ng-click="clearSearch()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="has-subheader">
+      <div class="list">
+        <div class="item my-item" collection-repeat="specialty in getDirectory()" 
+        collection-item-height="getItemHeight(specialty)" 
+        ng-style="{'line-height': getItemHeight(specialty) + 'px'}"
+        ng-class="{'item-divider': specialty.isLetter}">
+          <a ng-href="{{getLink(specialty.id)}}">
+            {{specialty.letter || specialty.name}}
+          </a>
+          <div class="my-icons">
+            <span ng-if="specialty.id == 'cardiology'" 
+            class="badge badge-assertive">Demo</span>
+          </div>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

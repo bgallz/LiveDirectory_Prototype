@@ -1,0 +1,22 @@
+<ion-view>
+  <ion-nav-title>{{team.name}}</ion-nav-title>
+  <ion-content>
+  	<div class="list">
+      <div class="item my-item" collection-repeat="staff in getStaff()"
+        collection-item-height="getItemHeight(staff)" 
+        ng-style="{'line-height': getItemHeight(staff) + 'px'}"
+        ng-class="{'item-divider': staff.isLetter}">
+        <a ng-href="{{staff.hrefVal}}">
+          {{staff.letter || staff.name}}
+          <i ng-if="staff.is_on_site" class="location-icon positive ion-ios-location"></i>
+        </a>
+        <div class="my-icons">
+          <i ng-if="!staff.isLetter && staff.is_consult" 
+          class="my-icon chat-icon ion-ios-chatbubble-outline"></i>
+          <i ng-if="!staff.isLetter && staff.is_consult" 
+          class="my-icon call-icon ion-ios-telephone-outline"></i>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

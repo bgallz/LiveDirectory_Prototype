@@ -1,0 +1,27 @@
+<ion-view>
+	<ion-nav-title>Calls</ion-nav-title>
+	<ion-header-bar class="bar-positive bar-subheader item-input-inset">
+		<div class="button-bar">
+		  <a ng-class="isAllActive ? 'button active' : 'button'" ng-click="showAll()">All</a>
+		  <a ng-class="isMissedActive ? 'button active' : 'button'" ng-click="showMissed()">Missed</a>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list>
+	      <ion-item class="item-avatar item-icon-right" ng-repeat="call in calls">
+	        <img ng-src="{{call.face}}">
+	        <h2 ng-class="{'missed': call.isMissed}">{{call.name}}</h2>
+	        <div class="teamName">{{call.team}}</div>
+
+	        <div class="my-icons small">
+	        	{{call.callTime}}
+	            <i class="info-icon ion-ios-information-outline" style="margin-left: 5px"></i>
+	        </div>
+
+	        <ion-option-button class="button-assertive" ng-click="remove(call)">
+	          Delete
+	        </ion-option-button>
+	      </ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

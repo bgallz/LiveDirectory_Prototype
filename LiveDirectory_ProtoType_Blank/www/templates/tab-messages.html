@@ -1,0 +1,33 @@
+<ion-view>
+  <ion-nav-title>Messages</ion-nav-title>
+  <ion-header-bar class="bar-positive bar-subheader item-input-inset">
+    <div class="button-bar">
+      <a ng-class="isAllActive ? 'button active' : 'button'" ng-click="showAll()">All</a>
+      <a ng-class="isHighPriorityActive ? 'button active' : 'button'" ng-click="showHighPriority()"><i class="high-priority-icon ion-ios-circle-outline"></i> High Priority</a>
+      <a ng-class="isLowPriorityActive ? 'button active' : 'button'" ng-click="showLowPriority()"><i class="low-priority-icon ion-ios-circle-outline"></i> Low Priority</a>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+
+        <div class="my-icons small">
+          <div>{{chat.lastUpdated}}</div>
+          <div>
+            <i ng-if="chat.priority == 'high'" 
+            class="high-priority-icon ion-ios-circle-outline"></i>
+            <i ng-if="chat.priority == 'low'" 
+            class="low-priority-icon ion-ios-circle-outline"></i>
+          </div>
+        </div>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

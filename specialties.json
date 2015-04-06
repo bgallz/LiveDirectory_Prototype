@@ -1,0 +1,27 @@
+{
+  "staff": {
+    "303456": {
+      "username": "bgallz",
+      "name": "Brian Gallz"
+    },
+    "414343": {
+      "username": "jjames",
+      "name": "Justin Jamesss"
+    },
+    "654666": {
+      "username": "ashah",
+      "name": "Ameet Shahhh"
+    }
+  },
+  "specialties": {
+    "Adolescent Medicine": { 
+      "name": "Adolescent Medicine"
+    },
+    "Allergy & Immunology": {
+      "name": "Allergy & Immunology"
+    },
+    "Cardiology": { 
+      "name": "Cardiology"
+    }
+  }
+}

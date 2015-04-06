@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-nav-title>{{specialty.name}}</ion-nav-title>
+  <ion-header-bar class="bar-positive bar-subheader item-input-inset">
+  	<div class="button-bar">
+	    <a ng-class="isAllActive ? 'button active' : 'button'" ng-click="showAll()">All</a>
+	    <a ng-if="hasConsults" ng-class="isConsultsActive ? 'button active' : 'button'" ng-click="showConsults()">Consults</a>
+	    <a ng-class="isTeamsActive ? 'button active' : 'button'" ng-click="showTeams()">Teams</a>
+    </div>
+  </ion-header-bar>
+  <ion-content class="has-subheader">
+	<div class="list">
+		<div class="item my-item" collection-repeat="staff in getStaff()"
+			collection-item-height="getItemHeight(staff)" 
+			ng-style="{'line-height': getItemHeight(staff) + 'px'}"
+			ng-class="{'item-divider': staff.isLetter}">
+			<a ng-if="!staff.isLetter" ng-href="{{staff.hrefVal}}">
+			  <div ng-style="{'margin': getItemMargin(staff)}">{{staff.name}} <i ng-if="staff.is_on_site" class="location-icon positive ion-ios-location"></i>
+			  <div ng-if="staff.team_name" class="teamName">{{staff.team_name}}</div></div>
+			</a>
+			<div class="my-icons">
+				<i ng-if="!staff.isLetter && staff.is_consult" 
+				class="my-icon chat-icon ion-ios-chatbubble-outline"></i>
+				<i ng-if="!staff.isLetter && staff.is_consult" 
+				class="my-icon call-icon ion-ios-telephone-outline"></i>
+			</div>
+			<div ng-if="staff.isLetter">{{staff.letter}}</div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>

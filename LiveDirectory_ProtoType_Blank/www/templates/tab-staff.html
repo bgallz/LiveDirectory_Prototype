@@ -1,0 +1,25 @@
+<ion-view view-title="Info">
+  <ion-content>
+    <div class="padding">
+      <div class="staff-container">
+        <div class="staff-avatar" ng-if="staff.profile_picture_url">
+          <img src="{{staff.profile_picture_url}}" height="60" border="0" />
+        </div>
+        <div class="staff-details">
+          <div><span class="large-text">{{staff.name}}</span> <i ng-if="staff.is_on_site" class="location-icon positive ion-ios-location"></i></div>
+          <div class="small">{{staff.role}}</div>
+          <div class="small">{{team.name}}</div>
+        </div>
+      </div>
+      <div class="staff-icons">
+        <a class="my-icon" href="sms:{{staff.phone_number}}"><i class="chat-icon ion-ios-chatbubble-outline"></i></a>
+        <a class="my-icon" href="tel:{{staff.phone_number}}"><i ng-if="staff.is_consult" class="call-icon ion-ios-telephone-outline"></i></a>
+      </div>
+    </div>
+    <div class="list" ng-if="team.name">
+      <div class="item item-divider">Team</div>
+      <a ng-href="#/tab/team/{{team.id}}" class="item item-icon-right">{{team.name}}
+        <i class="icon ion-ios-arrow-right"></i></a>
+    </div>
+  </ion-content>
+</ion-view>

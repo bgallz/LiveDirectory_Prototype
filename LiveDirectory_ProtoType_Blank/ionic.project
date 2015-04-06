@@ -1,4 +1,12 @@
 {
-  "name": "LiveDirectory_ProtoType_Blank",
-  "app_id": ""
+  "name": "LiveDirectory_Prototype_Blank",
+  "app_id": "d42cf804",
+  "gulpStartupTasks": [
+  	"sass",
+  	"watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
